@@ -1,6 +1,14 @@
 Atividade 03 - Grafo de visibilidade de robô
 
 # Problema:-------------------------------------------------
+
+1 - Ler o arquivo do mapa
+2 - Construir grafo de visibilidade
+3 - Montar árvore de custo mínimo com Kruskal e Prim
+4 - Determinar o vértice da árvore mais próximo de uma posição definida
+5 - Implementar busca em árvore com a técnica que se sentirem mais confortável
+6 - Testar cenário em que o robô está já em um vértice da árvore e um outro em que o robô não está.
+
 ```
 import numpy as np
 ```
@@ -84,3 +92,11 @@ path = computarCaminho(T, pos_inicial, pos_final)
 ```
 
 # Solução: ----------------------------------------------------------------
+
+ A resolução é feita em 2 arquivos, o ***main.py*** que responsável pela parte da resolução do problema, o ***grafo.py*** que serve para criar No e Aresta(funções para gerenciamento de um grafo).
+ 
+ Na ***primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
+  
+ > criar_grafo(G,arq)
+ 
+ Em ***main.py*** e  recebe um objeto do tipo grafo é um arquivo contendo como entrada a quantidade de nós, a quantidade de arestas é as aresta do tipo ***u v peso***
