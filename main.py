@@ -2,11 +2,13 @@ from grafo import Grafo
 from math import sqrt
 from shapely.geometry import Point, Polygon
 
+
 objetos = []
 
 def peso(u,v):
     # Peso nas aretas
-    return sqrt((v[0]-u[0])**2 + (v[1]-u[1])**2)
+    peso = sqrt((v[0]-u[0])**2 + (v[1]-u[1])**2)
+    return round(peso, 2)
 
 def intersecao(x1,y1,x2,y2,x3,y3,x4,y4):
     #(ax,ay) ---> (bx,by)
@@ -108,7 +110,7 @@ def main():
     T = Grafo() # Criar a arvore
     v,a,ord,size = G.copy()# Copiar os vertices e as aresta da subarvore gerados em prim()
     T.r_copy(v,a,ord,size)# Cola a subarvore
-    print("Arvóre Geradora Mínima:")
+    print("Árvore Geradora Mínima:")
     T.__str__()
     print('\n')
 
@@ -116,6 +118,8 @@ def main():
     # Vertice mais proximo:
     qstart = verticeMaisProximo(T,qstart)
     qgoal = verticeMaisProximo(T,qgoal)
+    print("Novo Qstrat: [1.0, 10.0] -> ",qstart)
+    print("Novo Qgoal: [10.0, 1.0] -> ",qgoal)
     # Caminho
     print("Caminho Mínimo:")
     T.Busca_profundidade(qstart,qgoal)

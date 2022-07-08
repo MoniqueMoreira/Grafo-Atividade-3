@@ -190,9 +190,9 @@ class Grafo():
 
     def __str__(self) -> str:
         #imprimir grafo
-        print("Quantidade de Vertices: {}".format(self.ord))
+        print("Quantidade de Vértices: {}".format(self.ord))
         print("Quantidade de Arestas: {}".format(self.size))
-        print("Vertices: ")
+        print("Vértices: ")
         print(self.get_vertices())
         print("Arestas: ")
         print(self.get_arestas())
