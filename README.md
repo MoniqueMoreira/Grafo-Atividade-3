@@ -6,11 +6,11 @@ import numpy as np
 ```
 Considere o problema de planejamento de caminho para veículos autônomos. Existem formas diferentes de representar o mapa em que o algoritmo de planejamento deve atuar. Em uma atividade anterior, nos preocupamos com mapas definidos por células, agora vamos trabalhar com uma representação topológica do ambiente (a versão mais à esquerda na figura abaixo).
 
-![Screenshot](p1.jpg)
+![Screenshot](p1.png)
 
 Podemos montar esse tipo de mapa, em um espaço poligonal, com uma técnica conhecida como Grafo de Visibilidade. A técnica pode ser observada no início do capítulo Roadmaps do livro Principles of Robot Motion. Em resumo, consideramos como vértices regiões de interesse, como a posição inicial e desejada do robô, além dos pontos de "quinas" dos obstáculos.
 
-![Screenshot](p2.jpg)
+![Screenshot](p2.png)
 
 ```
 # Considere que o arquivo esteja no formato a seguir:
@@ -33,7 +33,7 @@ Será preciso resolver um problema de Point-In-Polygon para saber se algum ponto
 
 Gerando um grafo como o a seguir:
 
-![Screenshot](p3.jpg)
+![Screenshot](p3.png)
 
 ```
 def montarGrafoVisibilidade(V):
