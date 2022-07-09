@@ -135,5 +135,4 @@ def main():
     T.Busca_profundidade(qstart,qgoal)
     print('\n')
 
-
 main()
