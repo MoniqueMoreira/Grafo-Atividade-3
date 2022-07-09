@@ -1,16 +1,24 @@
 Atividade 03 - Grafo de visibilidade de robô
 
 # Problema:-------------------------------------------------
+
+1 - Ler o arquivo do mapa
+2 - Construir grafo de visibilidade
+3 - Montar árvore de custo mínimo com Kruskal e Prim
+4 - Determinar o vértice da árvore mais próximo de uma posição definida
+5 - Implementar busca em árvore com a técnica que se sentirem mais confortável
+6 - Testar cenário em que o robô está já em um vértice da árvore e um outro em que o robô não está.
+
 ```
 import numpy as np
 ```
 Considere o problema de planejamento de caminho para veículos autônomos. Existem formas diferentes de representar o mapa em que o algoritmo de planejamento deve atuar. Em uma atividade anterior, nos preocupamos com mapas definidos por células, agora vamos trabalhar com uma representação topológica do ambiente (a versão mais à esquerda na figura abaixo).
 
-![Screenshot](p1.jpg)
+![Screenshot](p1.png)
 
 Podemos montar esse tipo de mapa, em um espaço poligonal, com uma técnica conhecida como Grafo de Visibilidade. A técnica pode ser observada no início do capítulo Roadmaps do livro Principles of Robot Motion. Em resumo, consideramos como vértices regiões de interesse, como a posição inicial e desejada do robô, além dos pontos de "quinas" dos obstáculos.
 
-![Screenshot](p2.jpg)
+![Screenshot](p2.png)
 
 ```
 # Considere que o arquivo esteja no formato a seguir:
@@ -33,7 +41,7 @@ Será preciso resolver um problema de Point-In-Polygon para saber se algum ponto
 
 Gerando um grafo como o a seguir:
 
-![Screenshot](p3.jpg)
+![Screenshot](p3.png)
 
 ```
 def montarGrafoVisibilidade(V):
@@ -84,3 +92,11 @@ path = computarCaminho(T, pos_inicial, pos_final)
 ```
 
 # Solução: ----------------------------------------------------------------
+
+ A resolução é feita em 2 arquivos, o ***main.py*** que responsável pela parte da resolução do problema, o ***grafo.py*** que serve para criar No e Aresta(funções para gerenciamento de um grafo).
+ 
+ Na ***primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
+  
+ > criar_grafo(G,arq)
+ 
+ Em ***main.py*** e  recebe um objeto do tipo grafo é um arquivo contendo como entrada a quantidade de nós, a quantidade de arestas é as aresta do tipo ***u v peso***
