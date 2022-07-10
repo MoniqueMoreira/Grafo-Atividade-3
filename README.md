@@ -131,7 +131,9 @@ Em ***main.py***, no qual será criada as arestas que não tiver nem um ponto em
 
 > intersecao(x1,y1,x2,y2,x3,y3,x4,y4)
 
-Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os ***dois primeiros o segmento de reta entre os vértices que desejamos*** criar as arestas, e os ***dois últimos os do segmento de reta de um dos lados do polígono***.Caso não exista nem uma intersecção com nem um lado dos polígonos ***poderá*** ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vértices pertencem ao mesmo polígono, pela numeração marcada quando criado os vértices, se sim,isto é, se pertencer ao mesmo obstáculo, temos que calcular o ponto médio desta nova aresta e testas se ele está dentro de algum polígono, através do Point-In-Polygon, para evitar que crie aresta dentro do polígono ou aresta erradas de polígonos não convexo(tipo um estrela), caso este ponto não faça parte, podemos criar a aresta por fim. Assim será criado as outras arestas com na figura abaixo:
+Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os ***dois primeiros o segmento de reta entre os vértices que desejamos*** criar as arestas, e os ***dois últimos os do segmento de reta de um dos lados do polígono***.Caso não exista nem uma intersecção com nem um lado dos polígonos ***poderá*** ser criado a aresta. 
+
+Após verificar que não existe intersecção, será verificado se estes dois vértices pertencem ao mesmo polígono, pela numeração marcada quando criado os vértices, se sim,isto é, se pertencer ao mesmo obstáculo, temos que calcular os pontos desta nova aresta e testas se ele está dentro de algum polígono, no caso em questão só calculei o ***ponto medio do segmento de reta*** para simplificar os calculos já que reta pode conter infinitos pontos, através do Point-In-Polygon, para evitar que crie aresta dentro do polígono ou aresta erradas de polígonos não convexo(tipo um estrela), caso este ponto não faça parte, podemos criar a aresta por fim. Assim será criado as outras arestas com na figura abaixo:
 
 ![Screenshot](vizibilidade.png)
 
