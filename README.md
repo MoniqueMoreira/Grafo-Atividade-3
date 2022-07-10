@@ -107,4 +107,17 @@ Tambem ao criar o vertices palas quinas do objetos vamos salvar os pontos que de
 
 Após criamos os vertices e as aresta delimitadoras do poligonos como mostrado na figura abaixo.
 
-![Screenshot](arvore 2.png
+![Screenshot](visibilidade1.png)
+
+Na ***segunda parte*** do problema, vamos criar as aresta de visibilidade, como indicado no problema, na função: 
+
+> criar_arestas(G)
+
+Em ***main.py***, no qual será criada as arestas que não tiver nem um ponto em comum com as aresta já criadas, isto é serão os segmentos de retas que não possuir intersecção como algum lado do poligono, que será indentificado pela função:
+
+> intersecao(x1,y1,x2,y2,x3,y3,x4,y4)
+
+Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os dois primeiros o segmento de reta entre os vertices que desejamos criar as arestas, e os dois ultimos os do segmesnto de reta de um dos lados do poligono.Caso não exista nem uma intersecção com nem um lado de um poligono poderá ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vertices pertence ao mesmo poligono, pela numeração marcada antes quando criado os vertices, se sim, termos que calcular o ponto medio desta nova aresta e testas se ele está dentro de algum poligono, atraves do Point-In-Polygon, para evitar que crie aresta dentro do poligono ou aresta de poligonos não converxo(tipo estrela), caso este ponto não faça parte podemos criar a aresta. Assim será criado as outras arestas com na figura abaixo:
+
+![Screenshot](vizibilidade.png)
+
