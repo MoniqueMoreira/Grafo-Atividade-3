@@ -1,5 +1,21 @@
 Atividade 03 - Grafo de visibilidade de robô
 
+# Sumário:
+
+  ## Problema
+  
+  ## Solução:
+  
+    * Primeira parte: Vértices e arestas dos objetos;
+    
+    * Segunda parte: Arestas de visão direta;
+    
+    * Terceira parte: Árvore geradora mínima(Prim);
+    
+    * Quarta parte: Vértice mais próximo e início dentro do objeto;
+    
+    * Quinta parte: Caminho entre dois vértices(Busca em profundidade) e caso de exemplo.
+
 # Problema:-------------------------------------------------
 
 1 - Ler o arquivo do mapa
