@@ -121,3 +121,9 @@ Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os d
 
 ![Screenshot](vizibilidade.png)
 
+Após criados todas as aretas termos o grafo de visibilidade abaixo:
+
+![Screenshot](v1.png)
+![Screenshot](v2.png)
+
+
