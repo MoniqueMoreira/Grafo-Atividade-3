@@ -168,3 +168,5 @@ Caso 1: Qstrat e Qgoal aleatório:
 Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
 
  ![Screenshot](c3.png)
+ 
+ Mesmo não explicito na árvore, o ponto (1.7,1.7) está dentro do objeto. 
