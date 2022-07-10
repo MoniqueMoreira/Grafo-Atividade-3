@@ -93,10 +93,18 @@ path = computarCaminho(T, pos_inicial, pos_final)
 
 # Solução: ----------------------------------------------------------------
 
- A resolução é feita em 2 arquivos, o ***main.py*** que responsável pela parte da resolução do problema, o ***grafo.py*** que serve para criar No e Aresta(funções para gerenciamento de um grafo).
+A resolução é feita em 2 arquivos, o ***main.py*** que responsável pela parte da resolução do problema, o ***grafo.py*** que serve para criar No e Aresta(funções para gerenciamento de um grafo).
  
- Na ***primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
+Na ***primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
   
  > criar_grafo(G,arq)
  
- Em ***main.py*** e  recebe um objeto do tipo grafo é um arquivo contendo como entrada a quantidade de nós, a quantidade de arestas é as aresta do tipo ***u v peso***
+Em ***main.py*** e recebe um objeto do tipo grafo é um arquivo contendo como entrada qstart, qgoal, quantidade de objetos presente no mapa, seguido da quantidade de quinas de cada objeto e suas respectivas posiçãoes no plano XY. Assim criando um novo vertice do grafo para cada quina do objeto e para entradas independentes, no caso qstrat e qgoal.
+
+Com os vertices criados vamos criar as primeira aresta, que será as aresta que delimitara os objetos, formando um poligono, que tambem será usado para impedir que criar aresta que tenha intersecção ou passe por dentro com objetos no mapa.
+
+Tambem ao criar o vertices palas quinas do objetos vamos salvar os pontos que delimitar o poligonos para futura verificação de Point-In-Polygon, e para cada vertice vamos indentificar a que objeto pertence para evitar criar aresta entre mesmo vertices do mesmo objeto.
+
+Após criamos os vertices e as aresta delimitadoras do poligonos como mostrado na figura abaixo.
+
+![Screenshot](arvore 2.png
