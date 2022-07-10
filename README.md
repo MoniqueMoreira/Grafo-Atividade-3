@@ -100,9 +100,12 @@ Na ***Primeira parte*** do problema e gerado o grafo através da entradas dos ar
  > criar_grafo(G,arq)
  
 Em ***main.py*** e recebe um objeto do tipo grafo é um arquivo contendo como entrada: 
-> qstart, 
-> qgoal, 
+> qstart,
+
+> qgoal,
+
 > quantidade de objetos presente no mapa, 
+
 > quantidade de quinas de cada objeto e suas respectivas posições no plano XY.
 
 Assim criando um novo vértice do grafo para cada quina do objeto e para entradas independentes, no caso qstrat e qgoal.
@@ -160,6 +163,7 @@ Caso 1: Qstrat e Qgoal dados no Arquivo:
 Caso 1: Qstrat e Qgoal aleatório:
 
  ![Screenshot](c2.png)
+ ![Screenshot](arvore 1.png)
 
 Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
 
