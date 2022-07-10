@@ -156,7 +156,7 @@ def main():
     T.limpar_visitados()
     qstart = verticeMaisProximo(T,[1.7,1.7])
     qgoal = verticeMaisProximo(T,[7.4,6.8])
-    print("Novo Qstrat: [2.6,0.2] -> ",qstart)
+    print("Novo Qstrat: [1.7,1.7] -> ",qstart)
     print("Novo Qgoal: [7.4,6.8] -> ",qgoal)
     if qstart != -1 and qgoal != -1:
         print("Caminho Mínimo:")
