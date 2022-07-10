@@ -85,15 +85,26 @@ def criar_grafo(G,arq):
     return([float(qstart[0]),float(qstart[1])],[float(qgoal[0]),float(qgoal[1])])
 
 def verticeMaisProximo(T, posicao):
-    vertices = T.get_vertices()
-    distancia = 9999.0
-    proximo = '-'
-    for v in vertices:
-        p = peso(posicao,v)
-        if p < distancia:
-            distancia = p
-            proximo = v
-    return proximo
+    cont =0 
+    for i in objetos:
+        poly = Polygon(i)
+        pm = Point(posicao[0],posicao[1])
+        if poly.contains(pm) == True:
+            cont = cont +1
+    if cont == 0:
+        vertices = T.get_vertices()
+        distancia = 9999.0
+        proximo = '-'
+        for v in vertices:
+            p = peso(posicao,v)
+            if p < distancia:
+                distancia = p
+                proximo = v
+
+        return proximo
+    else: 
+        return -1
+    
 
 def main():
     # Grafo de visibilidade
@@ -114,25 +125,44 @@ def main():
     T.__str__()
     print('\n')
 
-
+    # Caso 1: QStrat e QGoal:
     # Vertice mais proximo:
     qstart = verticeMaisProximo(T,qstart)
     qgoal = verticeMaisProximo(T,qgoal)
     print("Novo Qstrat: [1.0, 10.0] -> ",qstart)
     print("Novo Qgoal: [10.0, 1.0] -> ",qgoal)
     # Caminho
-    print("Caminho Mínimo:")
-    T.Busca_profundidade(qstart,qgoal)
-    print('\n')
+    if qstart != -1 and qgoal != -1:
+        print("Caminho Mínimo:")
+        T.Busca_profundidade(qstart,qgoal)
+        print('\n')
+    else:
+        print("Sem rota possivel")
 
-    # QStrat e QGoal aleátorio:
+    # Caso 2: QStrat e QGoal aleátorio:
     T.limpar_visitados()
     qstart = verticeMaisProximo(T,[2.6,0.2])
     qgoal = verticeMaisProximo(T,[7.4,6.8])
     print("Novo Qstrat: [2.6,0.2] -> ",qstart)
     print("Novo Qgoal: [7.4,6.8] -> ",qgoal)
-    print("Caminho Mínimo:")
-    T.Busca_profundidade(qstart,qgoal)
-    print('\n')
+    if qstart != -1 and qgoal != -1:
+        print("Caminho Mínimo:")
+        T.Busca_profundidade(qstart,qgoal)
+        print('\n')
+    else:
+        print("Sem rota possivel")
 
+    # Caso 3: QStrat e QGoal aleátorio:
+    T.limpar_visitados()
+    qstart = verticeMaisProximo(T,[1.7,1.7])
+    qgoal = verticeMaisProximo(T,[7.4,6.8])
+    print("Novo Qstrat: [2.6,0.2] -> ",qstart)
+    print("Novo Qgoal: [7.4,6.8] -> ",qgoal)
+    if qstart != -1 and qgoal != -1:
+        print("Caminho Mínimo:")
+        T.Busca_profundidade(qstart,qgoal)
+        print('\n')
+    else:
+        print("Sem rota possível")
+    
 main()
