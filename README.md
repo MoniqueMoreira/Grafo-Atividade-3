@@ -45,11 +45,11 @@ Gerando um grafo como o a seguir:
 
 ```
 def montarGrafoVisibilidade(V):
-  # Escrever codigo
+  # Escrever código
   return G
 ```
 
-O grafo resultante serve como roadmap, não só para ir de  qstart  para  qgoal , mas permite planejar caminhos do veículo para outras regiões do mapa. Tudo isso usando técnicas de teoria dos grafos. Sabendo que o veículo sempre inicia em uma certa posição, podemos explorar algoritmos de busca ainda mais eficientes na estrutura de árvore. Pretende-se então descobrir qual a árvore que passa por todos os vértices e o custo total é mínimo. Esse problema pode ser trabalhado com os algoritmos de Kruskal e Prim, implemente ambos algoritmos.
+O grafo resultante serve como roadmap, não só para ir de  qstart  para  qgoal , mas permite planejar caminhos do veículo para outras regiões do mapa. Tudo isso usando técnicas de teoria dos grafos. Sabendo que o veículo sempre inicia em uma certa posição, podemos explorar algoritmos de busca ainda mais eficientes na estrutura da árvore. Pretende-se então descobrir qual a árvore que passa por todos os vértices e o custo total é mínimo. Esse problema pode ser trabalhado com os algoritmos de Kruskal e Prim, implemente ambos algoritmos.
 
 ```
 def mstKruskal(G):
@@ -66,10 +66,10 @@ Caso o robô inicie em um local não contemplado com um vértice, podemos fazer 
 ```
 def verticeMaisProximo(T, posicao):
   # Escrever código
-  return vertice
+  return vértice
 ```
 
-Agora é possível encontrar o caminho de  qstart  para  qgoal . Para isso, pode ser usada uma técnica padrõa de busca de árvore, seja busca por lagura, profundidade ou mesmo A*.
+Agora é possível encontrar o caminho para  qgoal . Para isso, pode ser usada uma técnica padrão de busca de árvore, seja busca por largura, profundidade ou mesmo A*.
 
 ```
 def computarCaminho(T, pos_inicial, pos_final):
@@ -95,35 +95,72 @@ path = computarCaminho(T, pos_inicial, pos_final)
 
 A resolução é feita em 2 arquivos, o ***main.py*** que responsável pela parte da resolução do problema, o ***grafo.py*** que serve para criar No e Aresta(funções para gerenciamento de um grafo).
  
-Na ***primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
+Na ***Primeira parte*** do problema e gerado o grafo através da entradas dos arquivos ***mapa.txt***, onde na função
   
  > criar_grafo(G,arq)
  
-Em ***main.py*** e recebe um objeto do tipo grafo é um arquivo contendo como entrada qstart, qgoal, quantidade de objetos presente no mapa, seguido da quantidade de quinas de cada objeto e suas respectivas posiçãoes no plano XY. Assim criando um novo vertice do grafo para cada quina do objeto e para entradas independentes, no caso qstrat e qgoal.
+Em ***main.py*** e recebe um objeto do tipo grafo é um arquivo contendo como entrada: 
+> qstart, 
+> qgoal, 
+> quantidade de objetos presente no mapa, 
+> quantidade de quinas de cada objeto e suas respectivas posições no plano XY.
 
-Com os vertices criados vamos criar as primeira aresta, que será as aresta que delimitara os objetos, formando um poligono, que tambem será usado para impedir que criar aresta que tenha intersecção ou passe por dentro com objetos no mapa.
+Assim criando um novo vértice do grafo para cada quina do objeto e para entradas independentes, no caso qstrat e qgoal.
 
-Tambem ao criar o vertices palas quinas do objetos vamos salvar os pontos que delimitar o poligonos para futura verificação de Point-In-Polygon, e para cada vertice vamos indentificar a que objeto pertence para evitar criar aresta entre mesmo vertices do mesmo objeto.
+Com os vértices criados vamos criar a primeira aresta, que será às arestas que delimitam os objetos, formando um polígono, que também será usado para impedir que criar aresta que tenha intersecção ou passe por dentro com objetos no mapa.
 
-Após criamos os vertices e as aresta delimitadoras do poligonos como mostrado na figura abaixo.
+Também ao criar o vertices pelas quinas do objetos vamos salvar os pontos que delimitar o poligonos para futura verificação de Point-In-Polygon, e para cada vértice vamos identificar a que objeto pertence para evitar criar aresta entre mesmo vértices do mesmo objeto, que usaremos na segunda parte do problema.
+
+Após criamos os vértices e as arestas delimitadoras do polígonos como mostrado na figura abaixo.
 
 ![Screenshot](visibilidade1.png)
 
-Na ***segunda parte*** do problema, vamos criar as aresta de visibilidade, como indicado no problema, na função: 
+Na ***Segunda parte*** do problema, vamos criar as aresta de visibilidade, como indicado no problema, na função: 
 
 > criar_arestas(G)
 
-Em ***main.py***, no qual será criada as arestas que não tiver nem um ponto em comum com as aresta já criadas, isto é serão os segmentos de retas que não possuir intersecção como algum lado do poligono, que será indentificado pela função:
+Em ***main.py***, no qual será criada as arestas que não tiver nem um ponto em comum com as aresta já criadas, isto é, serão os segmentos de retas que não possuir intersecção como algum lado do polígono, que será identificado pela função:
 
 > intersecao(x1,y1,x2,y2,x3,y3,x4,y4)
 
-Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os dois primeiros o segmento de reta entre os vertices que desejamos criar as arestas, e os dois ultimos os do segmesnto de reta de um dos lados do poligono.Caso não exista nem uma intersecção com nem um lado de um poligono poderá ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vertices pertence ao mesmo poligono, pela numeração marcada antes quando criado os vertices, se sim, termos que calcular o ponto medio desta nova aresta e testas se ele está dentro de algum poligono, atraves do Point-In-Polygon, para evitar que crie aresta dentro do poligono ou aresta de poligonos não converxo(tipo estrela), caso este ponto não faça parte podemos criar a aresta. Assim será criado as outras arestas com na figura abaixo:
+Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os ***dois primeiros o segmento de reta entre os vértices que desejamos*** criar as arestas, e os ***dois últimos os do segmento de reta de um dos lados do polígono***.Caso não exista nem uma intersecção com nem um lado dos polígonos poderá ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vértices pertencem ao mesmo polígono, pela numeração marcada quando criado os vértices, se sim,isto é, se pertencer ao mesmo obstáculo, temos que calcular o ponto médio desta nova aresta e testas se ele está dentro de algum polígono, através do Point-In-Polygon, para evitar que crie aresta dentro do polígono ou aresta de polígonos não convexo(tipo um estrela), caso este ponto não faça parte, podemos criar a aresta por fim. Assim será criado as outras arestas com na figura abaixo:
 
 ![Screenshot](vizibilidade.png)
 
-Após criados todas as aretas termos o grafo de visibilidade abaixo:
+Após criados todas as arestas termos o grafo de visibilidade abaixo:
 
 ![Screenshot](v1.png)
 ![Screenshot](v2.png)
 
+Na ***Terceira parte*** do problema, iremos criar a árvore geradora mínima traves do grafo de visibilidade criado acima, que será criado através da função:
 
+> Prim(self,qstrat)
+
+Dentro do arquivo ***grafo.py***, onde pelo algoritmo de Prim vamos selecionar as arestas que possuírem o menor custo, até que todos os vértices estejam interligados sem formar ciclos, isto é a árvore tem que ser conexo e acíclico. Assim que completo teremos um subgrafo do grafo de visibilidade, que será salvo no grafo T(Tree), como mostrado abaixo:
+
+![Screenshot](arvore.png)
+![Screenshot](a.png)
+
+Na ***Quarta parte*** do problema, vamos iniciar a busca na árvore de qstart até qgoal, mais antes, existe um subproblema e quando o robô não está em um vértice, então antes teremos que  calcular o vértice mais próximo na árvore de onde o robô para iniciar a buscar na árvore, assim através da função:
+
+> verticeMaisProximo(T, posicao)
+
+Em ***main.py*** que irá calcular a menor distância e salvar o vértice mais próximo da posição do robô, caso robô inicie em uma posição não possível, isto é, dentro de um objeto, não haverá busca, e o caminho será vazio.
+
+Na ***Quinta parte*** do problema, será calculado, se possível o caminho de Qstrat a Qgoal, pela função
+
+> Busca_Profundidade(self,qstrat,qgoal)
+
+Em ***grafo.py***, assim será percorrido a árvore até achar qgoal e imprimir o caminho, como mostrado nos caso abaixo:
+
+Caso 1: Qstrat e Qgoal dados no Arquivo:
+
+ ![Screenshot](c1.png)
+
+Caso 1: Qstrat e Qgoal aleatório:
+
+ ![Screenshot](c2.png)
+
+Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
+
+ ![Screenshot](c3.png)
