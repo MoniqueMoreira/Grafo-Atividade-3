@@ -110,15 +110,15 @@ Em ***main.py*** e recebe um objeto do tipo grafo é um arquivo contendo como en
 
 Assim criando um novo vértice do grafo para cada quina do objeto e para entradas independentes, no caso qstrat e qgoal.
 
-Com os vértices criados vamos criar a primeira aresta, que será às arestas que delimitam os objetos, formando um polígono, que também será usado para impedir que criar aresta que tenha intersecção ou passe por dentro com objetos no mapa.
+Com os vértices criados vamos criar as primeiras arestas, que será às arestas que delimitam os objetos, formando um polígono, que também será usado para impedir que criar aresta que tenha intersecção ou passe por dentro com objetos no mapa.
 
-Também ao criar o vertices pelas quinas do objetos vamos salvar os pontos que delimitar o poligonos para futura verificação de Point-In-Polygon, e para cada vértice vamos identificar a que objeto pertence para evitar criar aresta entre mesmo vértices do mesmo objeto, que usaremos na segunda parte do problema.
+Também ao criar o vertices pelas quinas do objetos vamos salvar os pontos que delimitar o poligonos para futura verificação de Point-In-Polygon, e para cada vértice vamos identificar a que objeto pertence para evitar criar aresta entre vértices do mesmo objeto, que usaremos na ***Segunda parte*** do problema.
 
 Após criamos os vértices e as arestas delimitadoras do polígonos como mostrado na figura abaixo.
 
 ![Screenshot](visibilidade1.png)
 
-Na ***Segunda parte*** do problema, vamos criar as aresta de visibilidade, como indicado no problema, na função: 
+Na ***Segunda parte*** do problema, vamos criar as aresta de visão direta, como indicado no problema, na função: 
 
 > criar_arestas(G)
 
@@ -126,7 +126,7 @@ Em ***main.py***, no qual será criada as arestas que não tiver nem um ponto em
 
 > intersecao(x1,y1,x2,y2,x3,y3,x4,y4)
 
-Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os ***dois primeiros o segmento de reta entre os vértices que desejamos*** criar as arestas, e os ***dois últimos os do segmento de reta de um dos lados do polígono***.Caso não exista nem uma intersecção com nem um lado dos polígonos poderá ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vértices pertencem ao mesmo polígono, pela numeração marcada quando criado os vértices, se sim,isto é, se pertencer ao mesmo obstáculo, temos que calcular o ponto médio desta nova aresta e testas se ele está dentro de algum polígono, através do Point-In-Polygon, para evitar que crie aresta dentro do polígono ou aresta de polígonos não convexo(tipo um estrela), caso este ponto não faça parte, podemos criar a aresta por fim. Assim será criado as outras arestas com na figura abaixo:
+Que está no mesmo arquivo, na qual recebe 4 pontos do tipo XY, assim sendo os ***dois primeiros o segmento de reta entre os vértices que desejamos*** criar as arestas, e os ***dois últimos os do segmento de reta de um dos lados do polígono***.Caso não exista nem uma intersecção com nem um lado dos polígonos *poderá* ser criado a aresta. Após verificar que não existe intersecção, será verificado se estes dois vértices pertencem ao mesmo polígono, pela numeração marcada quando criado os vértices, se sim,isto é, se pertencer ao mesmo obstáculo, temos que calcular o ponto médio desta nova aresta e testas se ele está dentro de algum polígono, através do Point-In-Polygon, para evitar que crie aresta dentro do polígono ou aresta erradas de polígonos não convexo(tipo um estrela), caso este ponto não faça parte, podemos criar a aresta por fim. Assim será criado as outras arestas com na figura abaixo:
 
 ![Screenshot](vizibilidade.png)
 
@@ -135,7 +135,7 @@ Após criados todas as arestas termos o grafo de visibilidade abaixo:
 ![Screenshot](v1.png)
 ![Screenshot](v2.png)
 
-Na ***Terceira parte*** do problema, iremos criar a árvore geradora mínima traves do grafo de visibilidade criado acima, que será criado através da função:
+Na ***Terceira parte*** do problema, iremos criar a árvore geradora mínima atráves do grafo de visibilidade criado acima, que será criado através da função:
 
 > Prim(self,qstrat)
 
@@ -169,4 +169,4 @@ Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
 
  ![Screenshot](c3.png)
  
- Mesmo não explicito na árvore, o ponto (1.7,1.7) está dentro do objeto. 
+ Mesmo não explicito no desenho da árvore, o ponto (1.7,1.7) está dentro do objeto é não e possível "sair" de dentro, então não chegarar em Qgoal. 
