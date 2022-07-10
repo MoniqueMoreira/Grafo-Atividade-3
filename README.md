@@ -163,7 +163,7 @@ Caso 1: Qstrat e Qgoal dados no Arquivo:
 Caso 1: Qstrat e Qgoal aleatório:
 
  ![Screenshot](c2.png)
- ![Screenshot](arvore 1.png)
+ ![Screenshot](arvore1.png)
 
 Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
 
