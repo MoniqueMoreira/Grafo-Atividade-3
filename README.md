@@ -183,12 +183,12 @@ Caso 1: Qstrat e Qgoal dados no Arquivo:
 
  ![Screenshot](c1.png)
 
-Caso 1: Qstrat e Qgoal aleatório:
+Caso 2: Qstrat e Qgoal aleatório:
 
  ![Screenshot](c2.png)
  ![Screenshot](arvore1.png)
 
-Caso 1: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
+Caso 3: Qstrat e Qgoal aleatório, com Qstart dentro de um objeto:
 
  ![Screenshot](c3.png)
  
